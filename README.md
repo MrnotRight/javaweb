@@ -1,10 +1,15 @@
-# A demo of JavaWeb
+# Java Web Class Demo
 
 
-## Introduction
-This is my work for JavaWeb class
-- No: 222015325052005
-- Websit: [mysite](http://120.79.76.125)
+## 项目名称
 
-## What did I do?
-- Week1:
+
+## 项目简介
+
+
+## 基本信息
+- 学号: **222015325052005**
+- 网址：[mysite](http://120.79.76.125)
+
+## 第一周完成内容
+- task1
