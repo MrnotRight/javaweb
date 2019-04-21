@@ -38,6 +38,10 @@
               font-size: 10px;
               padding-top: 6px;
           }
+          .img-thumbnail{
+          	height:200px;
+          	width:260px;
+          }
       </style>
   </head>
    <body>
@@ -156,28 +160,28 @@
                <!--为3的栅格系统，相对于一行放四个-->
                <div class="col-sm-3">
                    <!--img-thumbnail 方形加外边框-->
-                   <img src="./Images/灵泉寺.png" height="200"  class="img-thumbnail" alt="灵泉寺"/>
+                   <img src="./Images/灵泉寺.png" class="img-thumbnail" alt="灵泉寺"/>
                    <h3>灵泉寺</h3>
                    <p>灵泉寺，国家AAAA旅游风景区，位于遂宁城东4公里，与广德寺隔涪江相望，灵泉寺始建于隋开皇年间（581-600），
-                   远在一千多年前就已成为佛教圣地历称：西方圣境，几与南海普陀山齐。</p>
+                   远在一千多年前就已成为佛教圣地历称：西方圣</p>
                    <p><a href="#" class="btn btn-success" role="button">详细</a></p>
                </div>
                <div class="col-sm-3">
-                   <img src="./Images/湿地公园.png" height="200" class="img-thumbnail" alt="湿地公园" />
+                   <img src="./Images/湿地公园.png" class="img-thumbnail" alt="湿地公园" />
                    <h3>湿地公园</h3>
                    <p>观音湖生态湿地公园，地处涪江中游，纵贯遂宁城区，水域面积达14.8平方公里。湖中有五个岛屿。
                    分为五彩缤纷路景观带和观音文化园两大部分。</p>
                    <p><a href="#" class="btn btn-success" role="button">详细</a></p>
                </div>
                <div class="col-sm-3">
-                   <img src="./Images/中国死海.png" height="200" class="img-thumbnail" alt="中国死海"/>  
+                   <img src="./Images/中国死海.png" class="img-thumbnail" alt="中国死海"/>  
                    <h3>中国死海</h3>
                    <p>来自于一亿五千万年前地球的两次造山运动在大英县形成的地下古盐湖盆地，其海水（盐卤水）的储量十分丰富，
-                   已探明的储量就高达42亿吨。“中国死海”海水含盐量超过了22%</p>
+                   已探明的储量就高达42亿吨。“中国死海”海水含盐</p>
                    <p><a href="#" class="btn btn-success" role="button">详细</a></p>
                </div>
                <div class="col-sm-3">
-                   <img src="./Images/宋瓷.png" height="200" class="img-thumbnail" alt="宋瓷博物馆"/>  
+                   <img src="./Images/宋瓷.png" class="img-thumbnail" alt="宋瓷博物馆"/>  
                    <h3>宋瓷博物馆</h3>
                    <p>宋瓷博物馆又名宋朝青瓷博物馆，该馆所拥有的宋代瓷器，与广汉三星自贡恐龙并称四川文物旅游三大著名品牌；2005年被评定为国家3A级景区</p>
                    <p><a href="#" class="btn btn-success" role="button">详细</a></p>
