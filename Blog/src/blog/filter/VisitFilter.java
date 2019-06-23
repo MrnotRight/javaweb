@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import blog.db.VisitorDB;
 import blog.utils.DateUtils;
 
-//ä»…ç»Ÿè®¡é¦–é¡µjspçš„è®¿é—®é‡
+//½öÍ³¼ÆÊ×Ò³jspµÄ·ÃÎÊÁ¿
 @WebFilter(filterName = "VisitFilter", urlPatterns = { "*.jsp" })
 public class VisitFilter implements Filter {
 
@@ -50,12 +50,12 @@ public class VisitFilter implements Filter {
 
 					Thread t = new Thread(new Runnable() {
 						public void run() {
-							// å‘æ•°æ®åº“å†™å…¥ä¿¡æ¯
+							// ÏòÊı¾İ¿âĞ´ÈëĞÅÏ¢
 							VisitorDB.visit(rq);
 
-							// å‘é€æ–°çš„cookie
+							// ·¢ËÍĞÂµÄcookie
 							Cookie c = new Cookie("myblog_visitor", DateUtils.getFormatDate(new Date()));
-							// cookieç”Ÿå‘½å‘¨60åˆ†é’Ÿ
+							// cookieÉúÃüÖÜ60·ÖÖÓ
 							c.setMaxAge(60 * 60);
 							c.setPath("/Blog");
 							rp.addCookie(c);

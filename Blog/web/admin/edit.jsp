@@ -96,9 +96,7 @@
                         flowChart : true,  
                         sequenceDiagram : true,   
                         imageUpload : true,
-				        imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],				        
-				        imageUploadURL : "/Blog/UploadPic",
-				        //后台只需要返回一个 JSON 数据				      
+				        imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],				        			      
 						onload : function() {
 							//console.log("onload =>", this, this.id, this.settings);
 						}

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import blog.model.Article;
 import blog.service.ArticleService;
-import blog.service.CommentService;
 import blog.service.TagService;
 
 @WebServlet("/ArticleServlet")
@@ -23,7 +22,7 @@ public class ArticleServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		ArticleService as = ArticleService.getInstance();
 		// 文章
-		Article a = as.getArticle("id", id).get(0);
+		Article a = as.getArticle("id", id).get(0);//通过id属性来获取文章返回的是一个list
 		request.setAttribute("article", a);
 
 		// 文章的所有标签
@@ -33,10 +32,6 @@ public class ArticleServlet extends HttpServlet {
 		request.setAttribute("article_pre", as.getPreviousArticle(a.getTime()));
 		// 获取下一篇文章
 		request.setAttribute("article_next", as.getNextArticle(a.getTime()));
-		// 加载文章评论
-		CommentService cs = CommentService.getInstance();
-		request.setAttribute("comment", cs.loadComment(a.getId()));
-
 		request.getRequestDispatcher("/page/article.jsp").forward(request, response);
 	}
 

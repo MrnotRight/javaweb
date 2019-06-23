@@ -14,14 +14,14 @@ public interface ArticleDao {
 	static final int MORE = 2;
 
 	/**
-	 * æµè§ˆäº†æ–‡ç«  å¢åŠ æ–‡ç« çš„æµè§ˆæ¬¡æ•°
+	 * ä¯ÀÀÁËÎÄÕÂ Ôö¼ÓÎÄÕÂµÄä¯ÀÀ´ÎÊı
 	 * 
 	 * @param article_id
 	 */
 	void addVisit(int article_id);
 
 	/**
-	 * è·å–ä¸Šä¸€æ–‡ç«  æˆ– ä¸‹ä¸€æ–‡ç« 
+	 * »ñÈ¡ÉÏÒ»ÎÄÕÂ »ò ÏÂÒ»ÎÄÕÂ
 	 * 
 	 * @param time
 	 * @param less_or_more
@@ -30,7 +30,7 @@ public interface ArticleDao {
 	Article getANearArticle(String time, int less_or_more);
 
 	/**
-	 * åˆ†ç»„æŸä¸€åˆ—å±æ€§ è®¡ç®—æ¯ä¸ªç»„çš„å¤§å° è¿”å›Map
+	 * ·Ö×éÄ³Ò»ÁĞÊôĞÔ ¼ÆËãÃ¿¸ö×éµÄ´óĞ¡ ·µ»ØMap
 	 * 
 	 * @param search_column
 	 * @return
@@ -38,14 +38,14 @@ public interface ArticleDao {
 	Map getColumAndCount(String search_column);
 
 	/**
-	 * è¿”å›æ‰€æœ‰çš„ç±»åˆ«
+	 * ·µ»ØËùÓĞµÄÀà±ğ
 	 * 
 	 * @return
 	 */
 	List getAllSort();
 
 	/**
-	 * æ–°çš„æ–‡ç« 
+	 * ĞÂµÄÎÄÕÂ
 	 * 
 	 * @param a
 	 * @return
@@ -53,7 +53,7 @@ public interface ArticleDao {
 	Article addArticle(Article a);
 
 	/**
-	 * åˆ é™¤æ–‡ç« 
+	 * É¾³ıÎÄÕÂ
 	 * 
 	 * @param id
 	 * @return
@@ -61,21 +61,21 @@ public interface ArticleDao {
 	boolean deleteArticle(String id);
 
 	/**
-	 * è·å–æ‰€æœ‰çš„æ–‡ç« 
+	 * »ñÈ¡ËùÓĞµÄÎÄÕÂ
 	 * 
 	 * @return
 	 */
 	List getAllArticle();
 
 	/**
-	 * è·å–é˜…è¯»æ’è¡Œæ–‡ç« åˆ—è¡¨
+	 * »ñÈ¡ÔÄ¶ÁÅÅĞĞÎÄÕÂÁĞ±í
 	 * 
 	 * @return
 	 */
 	List getVisitRank();
 
 	/**
-	 * é€šè¿‡æŸä¸€åˆ—æŸ¥è¯¢æ–‡ç« 
+	 * Í¨¹ıÄ³Ò»ÁĞ²éÑ¯ÎÄÕÂ
 	 * 
 	 * @param column
 	 * @param value
@@ -84,7 +84,7 @@ public interface ArticleDao {
 	List<Article> getArticleByColumn(String column, String value);
 
 	/**
-	 * è·å–æ–‡ç« çš„æ•°é‡æˆ–è€…ç±»åˆ«çš„æ•°é‡
+	 * »ñÈ¡ÎÄÕÂµÄÊıÁ¿»òÕßÀà±ğµÄÊıÁ¿
 	 * 
 	 * @param search_key
 	 * @return
@@ -92,7 +92,7 @@ public interface ArticleDao {
 	int getCount(String search_key);
 
 	/**
-	 * ç‚¹èµäº†æ–‡ç« 
+	 * µãÔŞÁËÎÄÕÂ
 	 * 
 	 * @param id
 	 * @return
@@ -100,7 +100,7 @@ public interface ArticleDao {
 	int star_article(int id);
 
 	/**
-	 * æ›´æ–°äº†ç±»åˆ«
+	 * ¸üĞÂÁËÀà±ğ
 	 * 
 	 * @param old_sort
 	 * @param new_sort
@@ -109,7 +109,7 @@ public interface ArticleDao {
 	boolean updateSort(String old_sort, String new_sort);
 
 	/**
-	 * åˆ é™¤åˆ†ç±»å’Œæ–‡ç« 
+	 * É¾³ı·ÖÀàºÍÎÄÕÂ
 	 * 
 	 * @param sort
 	 * @return

@@ -18,12 +18,12 @@ public class SortServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// è·å–çš„æ˜¯æ‰€æœ‰åˆ†ç±» è¿˜æ˜¯ä¸€ä¸ªåˆ†ç±»çš„æ–‡ç« 
+		// »ñÈ¡µÄÊÇËùÓĞ·ÖÀà »¹ÊÇÒ»¸ö·ÖÀàµÄÎÄÕÂ
 		String get = StringUtils.pareCode(request.getParameter("get"));
-		// åˆå§‹åŒ–åˆ†ç±»å’Œå’Œæ–‡ç« 
+		// ³õÊ¼»¯·ÖÀàºÍºÍÎÄÕÂ
 		ArticleService as = ArticleService.getInstance();
 		request.setAttribute("sort_article_map", as.getSortAndAirticle(get));
-		// è½¬å‘
+		// ×ª·¢
 		request.getRequestDispatcher("/page/sort.jsp").forward(request, response);
 	}
 

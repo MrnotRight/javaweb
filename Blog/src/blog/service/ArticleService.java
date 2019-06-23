@@ -12,7 +12,6 @@ import java.util.TreeMap;
 import blog.dao.ArticleDao;
 import blog.daoImpl.ArticleDaoImpl;
 import blog.model.Article;
-import blog.model.AxisArticle;
 import blog.utils.ArticleUtils;
 import blog.utils.StringUtils;
 
@@ -27,7 +26,7 @@ public class ArticleService {
 	}
 
 	/**
-	 * è·å–å®ä¾‹
+	 * »ñÈ¡ÊµÀı
 	 * 
 	 * @return
 	 */
@@ -43,7 +42,7 @@ public class ArticleService {
 	}
 
 	/**
-	 * è·å–ä¸Šä¸€ç¯‡æ–‡ç« 
+	 * »ñÈ¡ÉÏÒ»ÆªÎÄÕÂ
 	 * 
 	 * @param time
 	 * @return
@@ -53,7 +52,7 @@ public class ArticleService {
 	}
 
 	/**
-	 * è·å–ä¸‹ä¸€ç¯‡
+	 * »ñÈ¡ÏÂÒ»Æª
 	 * 
 	 * @param time
 	 * @return
@@ -63,7 +62,7 @@ public class ArticleService {
 	}
 
 	/**
-	 * è·å–æ–‡ç« çš„æ•°é‡ æˆ– åˆ†ç±»çš„æ•°é‡
+	 * »ñÈ¡ÎÄÕÂµÄÊıÁ¿ »ò ·ÖÀàµÄÊıÁ¿
 	 * 
 	 * @param search_key
 	 * @return
@@ -73,56 +72,7 @@ public class ArticleService {
 	}
 
 	/**
-	 * è·å–æ—¶é—´è½´æ˜¾ç¤ºçš„æ–‡ç«  Todo: é‡å†™è¿™æ®µåƒåœ¾ä»£ç  ç®—æ³•ä¸è¡Œ
-	 * 
-	 * @return
-	 */
-	public List getAxisList() {
-		// è·å–æ•°æ®åº“ä¸­çš„æ‰€æœ‰æ–‡ç« 
-		List<Article> articles = dao.getAllArticle();
-		// ç”¨æ¥å­˜ æ—¶é—´è½´æ–‡ç«  (ä¸€ç§æ¯”Articleç±»æ›´ç®€å•é€‚ç”¨çš„å¯¹è±¡)
-		List<AxisArticle> axis_list = new ArrayList();
-		// Article->AxisArticle
-		for (Article a : articles) {
-			AxisArticle at = ArticleUtils.getAxisArticle(a);
-			axis_list.add(at);
-		}
-		// è¿™é‡Œå¼€å§‹å¤„ç†æ•°æ® æ–‡ç« æ’åºæ˜¯ 2018-2017-2016 æ—¶é—´é™åº
-		// å› ä¸ºè¦å®ç° æ–‡ç« +æ–‡ç« +year æ–‡ç« +æ–‡ç« +yearçš„æ•ˆæœ è¿™é‡ŒæŠŠyearå°è£…æˆä¸€ä¸ªç‰¹æ®Šçš„AxisArticleå¯¹è±¡ id=0 year =
-		// æ–‡ç« æˆªè‡³æ—¥æœŸ
-		// ç„¶åå…¨éƒ¨å­˜å…¥ result ä¸­
-		// åœ¨jspåˆ¤æ–­id==0
-		// true: yearè¾“å‡º
-		// false: è¾“å‡ºAxisArticleå¯¹è±¡çš„
-		AxisArticle tmp = null;
-		List result = new LinkedList();
-		// å¡è¿›å»æœ€æ–°çš„ä¸€ä¸ªå¹´ä»½ å¹¶ä¸”å¡å…¥ç¬¬ä¸€ä¸ªAxisArticle
-		if (!axis_list.isEmpty()) {
-			tmp = new AxisArticle();
-			tmp.setId(0);
-			tmp.setYear(axis_list.get(0).getYear());
-			result.add(tmp);
-			result.add(axis_list.get(0));
-		}
-		// åˆ¤æ–­æ–‡ç« å¹´ä»½æ˜¯ä¸æ˜¯ä¸ä¸€æ · ä¸ä¸€æ ·åˆ™å¡ä¸€ä¸ªyear
-		for (int i = 1; i < axis_list.size(); i++) {
-			int present_year = axis_list.get(i).getYear();
-			int past_year = axis_list.get(i - 1).getYear();
-
-			if (present_year < past_year) {
-				tmp = new AxisArticle();
-				tmp.setId(0);
-				tmp.setYear(present_year);
-				result.add(tmp);
-			}
-			result.add(axis_list.get(i));
-		}
-		// æ³¨æ„: åœ¨listéå†é‡Œé¢åŠ¨æ€ä¿®æ”¹äº†æ•°ç»„é•¿åº¦ä¼šå‡ºç°å†…å­˜æº¢å‡ºçš„æƒ…å†µ
-		return result;
-	}
-
-	/**
-	 * é€šè¿‡åˆ—å±æ€§è·å–æ–‡ç« 
+	 * Í¨¹ıÁĞÊôĞÔ»ñÈ¡ÎÄÕÂ
 	 * 
 	 * @param column
 	 * @param value
@@ -133,18 +83,17 @@ public class ArticleService {
 	}
 
 	/**
-	 * è·å–åˆ†ç±»åŠè¯¥åˆ†ç±»çš„æ–‡ç« æ•°é‡
+	  * »ñÈ¡·ÖÀà¼°¸Ã·ÖÀàµÄÎÄÕÂÊıÁ¿
 	 * 
 	 * @return
 	 */
 	public Map getSortAndCount() {
 		// TO DO
-		// éœ€è¦é‡å†™è¿™ä¸ªæ–¹æ³•
 		return dao.getColumAndCount(dao.SEARCH_SORT);
 	}
 
 	/**
-	 * è·å– æ‰€æœ‰æ–‡ç«  æˆªå–æ–‡ç« é•¿åº¦ æˆªå–ä¸€ä¸‹æ—¶é—´ å»æ‰æ—¶ åˆ†é’Ÿ ç§’
+	 * »ñÈ¡ ËùÓĞÎÄÕÂ ½ØÈ¡ÎÄÕÂ³¤¶È ½ØÈ¡Ò»ÏÂÊ±¼ä È¥µôÊ± ·ÖÖÓ Ãë
 	 * 
 	 * @return
 	 */
@@ -158,7 +107,7 @@ public class ArticleService {
 	}
 
 	/**
-	 * è·å–åˆ†ç±»å’Œå®ƒçš„æ–‡ç« 
+	 * »ñÈ¡·ÖÀàºÍËüµÄÎÄÕÂ
 	 * 
 	 * @return
 	 */
@@ -167,7 +116,7 @@ public class ArticleService {
 		Map map = new HashMap();
 		List<Article> articleBySort = null;
 
-		// è·å–æ‰€æœ‰åˆ†ç±»
+		// »ñÈ¡ËùÓĞ·ÖÀà
 		if (sort_name.equals("all") || StringUtils.isEmpty(sort_name)) {
 			List<String> sorts = dao.getAllSort();
 
@@ -175,10 +124,10 @@ public class ArticleService {
 				String sort = sorts.get(i);
 				articleBySort = dao.getArticleByColumn("sort", sort);
 				ArticleUtils.cutTime(articleBySort);
-				map.put(sort, articleBySort);
+				map.put(sort, articleBySort);//articleBySort ÊÇÒ»¸ölist
 			}
 		} else {
-			// è·å–å•ä¸ªåˆ†ç±»
+			// »ñÈ¡µ¥¸ö·ÖÀà
 			articleBySort = dao.getArticleByColumn("sort", sort_name);
 			ArticleUtils.cutTime(articleBySort);
 			map.put(sort_name, articleBySort);
@@ -187,7 +136,8 @@ public class ArticleService {
 	}
 
 	public List getVisitRank() {
-		List list = dao.getVisitRank();
+		List list = dao.getVisitRank();//»ñÈ¡°²×°ÔÄ¶ÁÊıÁ¿µİ¼õÅÅĞòµÄÎÄÕÂlist
+		//ÏÔÊ¾Ç°Ê®¸öÎÄÕÂ
 		if (list.size() > 10) {
 			for (int i = 10; i < list.size(); i++) {
 				list.remove(i);
@@ -196,6 +146,7 @@ public class ArticleService {
 		for (int y = 0; y < list.size(); y++) {
 
 			Article a = (Article) list.get(y);
+			//ÏÔÊ¾±êÌâÄÚÈİµÄÇ°20¸ö×Ö·û
 			if (a.getTitle().length() > 20) {
 				a.setTitle(StringUtils.cutString(a.getTitle(), 0, 19) + "...");
 			}
@@ -219,5 +170,3 @@ public class ArticleService {
 	}
 
 }
-// 2017å¹´9æœˆ20æ—¥10:18:38 æ€ä¹ˆè¿˜æ²¡æå®š
-// 2017å¹´9æœˆ20æ—¥21:30:18

@@ -6,7 +6,7 @@
     <!-- 数据库密码: 123456 -->
 
     <!-- 请根据实际在下面配置中修改你的配置信息 -->
-    <default-config>
+    <named-config name="MyDB">
         <!-- 连接四大参数配置 -->
         <property name="jdbcUrl">jdbc:mysql://120.79.76.125:3306/myblog?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8</property>
         <property name="driverClass">com.mysql.jdbc.Driver</property>
@@ -17,5 +17,5 @@
         <property name="initialPoolSize">20</property>
         <property name="minPoolSize">20</property>
         <property name="maxPoolSize">50</property>
-    </default-config>    
+    </named-config>    
 </c3p0-config>

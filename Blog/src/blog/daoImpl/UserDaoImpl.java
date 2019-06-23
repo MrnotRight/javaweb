@@ -41,16 +41,6 @@ public class UserDaoImpl implements UserDao {
 		return instance;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see blog.daoImpl.UserDao#register(java.lang.String, java.lang.String)
-	 */
-	@Override
-	public boolean register(String username, String password) {
-		// todo
-		return false;
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -77,6 +67,7 @@ public class UserDaoImpl implements UserDao {
 				map.put("user_password", rs.getString("user_name"));
 				map.put("user_id", rs.getString("user_id"));
 				try {
+					//遍历map中key，如果user中有key的这个属性，则把map中对应的值赋给user中的该属性
 					BeanUtils.populate(user, map);
 				} catch (Exception e) {
 					throw new RuntimeException();

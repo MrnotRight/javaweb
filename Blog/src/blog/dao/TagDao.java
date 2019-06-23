@@ -11,7 +11,7 @@ public interface TagDao {
 	String DEFAULT_TAG = "LEMONREDS2017";
 
 	/**
-	 * 新的标签
+	 * 添加新的标签
 	 * 
 	 * @param id
 	 * @param tag

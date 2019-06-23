@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//src/blog/dao/TagDao.java=UTF-8
+encoding//src/blog/daoImpl/ArticleDaoImpl.java=UTF-8
+encoding//src/blog/db/VisitorDB.java=UTF-8
+encoding//src/blog/servlet=UTF-8
+encoding//src/blog/servlet/ArticleServlet.java=UTF-8
+encoding//src/blog/utils/ArticleUtils.java=UTF-8
+encoding/src=GBK

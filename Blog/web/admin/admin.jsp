@@ -24,7 +24,6 @@
 		<div id="header">
 			<div>
 				<h2><a href="/Blog/login.html">MyBlog-管理</a></h2>
-				<h5 class="text-muted">有点粗糙 但能用就行</h5>
 				</div>		
 		</div>
 				 
@@ -52,37 +51,7 @@
 						 </div>										 
 				</div>							
 				</c:forEach>					
-				</div>
-				
-				<div class="admin_div">
-				<h4 class="btn btn-default">管理分类</h4><h5 style="color:#d9534f" >删除分类会删除所有的文章</h5>
-				<c:forEach var="s" items="${sort}">				
-				<div class="list-group-item">						
-						<input type="text"  class="sort" value="${s}"   disabled="disabled" style="border:0px;"  >
-						 <div class="r_div">							
-						 <button class="btn btn-default">&nbsp;<span class="glyphicon glyphicon-pencil" style="color:#5bc0de" onclick="edit_sort(this,'${s}')">编辑</span>&nbsp;</button>
-						 <button class="btn btn-default">&nbsp;<span class="glyphicon glyphicon-trash" style="color:#d9534f" onclick="delet_sort(this,'${s}')">删除</span>&nbsp;</button>
-						 </div>										 
-				</div>							
-				</c:forEach>
-				</div>
-				
-				<div class="admin_div">
-				<h4 class="btn btn-default">管理标签</h4>
-				<c:forEach var="t" items="${tags}">				
-				<div class="list-group-item">						
-						<input type="text" class="tags"  value="${t.tag}"  disabled="disabled"  style="border:0px">
-						 <div class="r_div">	
-						 <button class="btn btn-default">&nbsp;<span class="glyphicon glyphicon-pencil" style="color:#5bc0de" onclick="edit_tag(this,'${t.tag}')" >编辑</span>&nbsp;</button>
-						 <button class="btn btn-default">&nbsp;<span class="glyphicon glyphicon-trash" style="color:#d9534f" onclick="delet_tag(this,'${t.tag}')">删除</span>&nbsp;</button>
-						 </div>										 
-				</div>							
-				</c:forEach>			
-				</div>
-
-		<div class="foot_line"></div>		
-		</div><!-- container -->		
-	
+				</div>		
 	<div id="footer">		
 		<a href="/Blog/index.jsp">&nbsp;&nbsp;MyBlog</a>	
 	</div> 		

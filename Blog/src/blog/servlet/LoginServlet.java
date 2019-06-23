@@ -1,19 +1,15 @@
 package blog.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.tagext.Tag;
 
 import blog.dao.ArticleDao;
-import blog.dao.UserDao;
-import blog.daoImpl.UserDaoImpl;
 import blog.db.VisitorDB;
-import blog.model.Article;
-import blog.model.User;
+import blog.listener.SessionCounter;
 import blog.service.ArticleService;
 import blog.service.TagService;
 import blog.utils.LoginUtils;
@@ -21,36 +17,42 @@ import blog.utils.LoginUtils;
 /**
  * Login->index.jsp->init data
  */
-@WebServlet("/LoginServlet")
+//@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		LoginUtils.login(request);
 
-		// åˆå§‹åŒ–åˆ†ç±»
+		// ³õÊ¼»¯·ÖÀà
 		ArticleService as = ArticleService.getInstance();
-		request.setAttribute("sort_count_map", as.getSortAndCount());
-		// åˆå§‹åŒ–æ–‡ç« åˆ—è¡¨
-		request.setAttribute("article_list", as.getArticle());
-		// åˆå§‹åŒ–è·å–æ ‡ç­¾
+		request.setAttribute("sort_count_map", as.getSortAndCount());//Àà±ğºÍ¼ÆÊı
+		// ³õÊ¼»¯ÎÄÕÂÁĞ±í
+		request.setAttribute("article_list", as.getArticle());//È¡³öËùÓĞÎÄÕÂ
+		// ³õÊ¼»¯»ñÈ¡±êÇ©
 		TagService ts = TagService.getInstance();
-		request.setAttribute("tag_list", ts.getAllTag());
+		request.setAttribute("tag_list", ts.getAllTag());//»ñÈ¡ËùÓĞµÄtag
 
-		// åˆå§‹åŒ–ä¾§è¾¹æ  æ—¥å¿—ã€åˆ†ç±»ã€æ ‡ç­¾çš„ä¸ªæ•°
+		// ³õÊ¼»¯²à±ßÀ¸ ÈÕÖ¾¡¢·ÖÀà¡¢±êÇ©µÄ¸öÊı
 		request.setAttribute("article_number", as.getCount(ArticleDao.SEARCH_ARTICLE));
 		request.setAttribute("sort_number", as.getCount(ArticleDao.SEARCH_SORT));
 		request.setAttribute("tags_number", ts.getTagCount());
 
-		// é˜…è¯»æ’è¡Œ
-		request.setAttribute("visit_rank", as.getVisitRank());
+		// ÔÄ¶ÁÅÅĞĞ¡Œ
+		request.setAttribute("visit_rank", as.getVisitRank());//ÏÔÊ¾ÅÅÃûÇ°Ê®µÄÎÄÕÂ£¬²¢ÇÒ±êÌâ´óÓÚ20¸ö×Ö·ûµÄÒÔÊ¡ÂÔºÅ´úÌæºóÃæÄÚÈİ
 
-		// ä¼ ç½‘ç«™çš„ç»Ÿè®¡æ•°æ®
+		// ´«ÍøÕ¾µÄÍ³¼ÆÊı¾İ
 		request.setAttribute("visited", VisitorDB.totalVisit());
 		request.setAttribute("member", VisitorDB.totalMember());
+		request.getSession().setAttribute("onlineUsers", SessionCounter.onlineCounter());
 
-		// è½¬å‘åˆ° åšå®¢ä¸»é¡µ ç•Œé¢
+		// ×ª·¢µ½ ²©¿ÍÖ÷Ò³ ½çÃæ
 		request.getRequestDispatcher("/page/main.jsp").forward(request, response);
 
 	}

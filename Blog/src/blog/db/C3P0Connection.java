@@ -8,7 +8,7 @@ import java.sql.Statement;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**
- * C3P0æ•°æ®åº“è¿æ¥æ± çš„ä½¿ç”¨ é…ç½®æ–‡ä»¶ src/c3p0-config.xml
+ * C3P0Êı¾İ¿âÁ¬½Ó³ØµÄÊ¹ÓÃ ÅäÖÃÎÄ¼ş src/c3p0-config.xml
  */
 public class C3P0Connection {
 
@@ -17,11 +17,11 @@ public class C3P0Connection {
 	private static ComboPooledDataSource dataSource;
 
 	private C3P0Connection() throws Exception {
-		dataSource = new ComboPooledDataSource();
+		dataSource = new ComboPooledDataSource("MyDB");
 	}
 
 	/**
-	 * è·å–å®ä¾‹
+	 * »ñÈ¡ÊµÀı
 	 * 
 	 * @return
 	 */
@@ -37,7 +37,7 @@ public class C3P0Connection {
 	}
 
 	/**
-	 * è·å–æ•°æ®åº“è¿æ¥
+	 * »ñÈ¡Êı¾İ¿âÁ¬½Ó
 	 * 
 	 * @return
 	 */

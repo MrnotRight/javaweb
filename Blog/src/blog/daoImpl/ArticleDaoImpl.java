@@ -13,11 +13,10 @@ import java.util.Map;
 import blog.dao.ArticleDao;
 import blog.db.C3P0Connection;
 import blog.model.Article;
-import blog.model.Comment;
 import blog.utils.DBUtils;
 
 /*
- * 文章服务类
+ * 鏂囩珷鏈嶅姟绫�
  *
  */
 public class ArticleDaoImpl implements ArticleDao {
@@ -170,7 +169,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	}
 
 	/**
-	 * 将文章加到delte表
+	 * 灏嗘枃绔犲姞鍒癲elte琛�
 	 * 
 	 * @param a
 	 * @return
@@ -200,7 +199,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	}
 
 	/**
-	 * 获取最新的文章
+	 * 鑾峰彇鏈�鏂扮殑鏂囩珷
 	 * 
 	 * @return
 	 */
@@ -240,7 +239,7 @@ public class ArticleDaoImpl implements ArticleDao {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			result = ps.executeUpdate();
-			// 关闭连接
+			// 鍏抽棴杩炴帴
 			DBUtils.Close(ps);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -263,16 +262,16 @@ public class ArticleDaoImpl implements ArticleDao {
 		try {
 			ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			// bean实例化
+			// bean瀹炰緥鍖�
 			while (rs.next()) {
 				Article article = new Article(rs.getInt("id"), rs.getString("title"), rs.getString("author"),
 						rs.getString("sort"), rs.getString("time"), rs.getInt("star"), rs.getInt("comment"),
 						rs.getInt("visit"), rs.getString("content"));
 				list.add(article);
 			}
-			// 关闭连接
+			// 鍏抽棴杩炴帴
 			DBUtils.Close(ps, rs);
-			// 排序 article compareTo();
+			// 鎺掑簭 article compareTo();
 			Collections.sort(list);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -295,14 +294,14 @@ public class ArticleDaoImpl implements ArticleDao {
 		try {
 			ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			// bean实例化
+			// bean瀹炰緥鍖�
 			while (rs.next()) {
 				Article article = new Article(rs.getInt("id"), rs.getString("title"), rs.getString("author"),
 						rs.getString("sort"), rs.getString("time"), rs.getInt("star"), rs.getInt("comment"),
 						rs.getInt("visit"), rs.getString("content"));
 				list.add(article);
 			}
-			// 关闭连接
+			// 鍏抽棴杩炴帴
 			DBUtils.Close(ps, rs);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -326,7 +325,7 @@ public class ArticleDaoImpl implements ArticleDao {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, value);
 			ResultSet rs = ps.executeQuery();
-			// bean实例化
+			// bean瀹炰緥鍖�
 			list = new ArrayList();
 			while (rs.next()) {
 				at = new Article(rs.getInt("id"), rs.getString("title"), rs.getString("author"), rs.getString("sort"),
@@ -334,7 +333,7 @@ public class ArticleDaoImpl implements ArticleDao {
 						rs.getString("content"));
 				list.add(at);
 			}
-			// 关闭连接
+			// 鍏抽棴杩炴帴
 			DBUtils.Close(ps, rs);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -352,9 +351,9 @@ public class ArticleDaoImpl implements ArticleDao {
 
 		String sql;
 		if (search_key.equals(SEARCH_ARTICLE)) {
-			sql = "SELECT COUNT(id) FROM t_article";
+			sql = "SELECT COUNT(id) FROM t_article";//统计文章数
 		} else {// SEARCH_SORT
-			sql = "SELECT COUNT(DISTINCT(sort)) FROM t_article";
+			sql = "SELECT COUNT(DISTINCT(sort)) FROM t_article";//统计文章分类数
 		}
 		int result = 0;
 		try {
@@ -431,7 +430,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	 */
 	@Override
 	public boolean delelteSort(String sort) {
-		// 找到这个分类下的文章 移动到t_article_delet
+		// 鎵惧埌杩欎釜鍒嗙被涓嬬殑鏂囩珷 绉诲姩鍒皌_article_delet
 		String sql = "SELECT * FROM t_article where sort = ?";
 		int result = 0;
 		try {
@@ -468,6 +467,6 @@ public class ArticleDaoImpl implements ArticleDao {
 
 }
 
-// 2017年9月19日21:57:38 大吉大利 今晚吃鸡
-// bug无敌多 fuck
-// 2017年9月26日15:10:47 这个类有毒
+// 2017骞�9鏈�19鏃�21:57:38 澶у悏澶у埄 浠婃櫄鍚冮浮
+// bug鏃犳晫澶� fuck
+// 2017骞�9鏈�26鏃�15:10:47 杩欎釜绫绘湁姣�
